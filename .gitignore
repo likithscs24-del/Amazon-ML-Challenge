@@ -6,3 +6,10 @@ ser_pipeline/sagemaker
 *.parquet
 *.pkl
 __pycache__/
+build/
+node_modules/
+.next/
+out/
+.env*
+*.log
+.DS_Store

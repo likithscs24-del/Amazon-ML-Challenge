@@ -1,6 +1,7 @@
 data/
 output/
 ser_pipeline/notebook/output/
+ser_pipeline/sagemaker
 *.tsv
 *.parquet
 *.pkl

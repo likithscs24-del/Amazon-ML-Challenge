@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-ui: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+html,
+body {
+  background: #07080a;
+  color: #edeef1;
+  height: 100%;
+}
+
+body {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+::selection {
+  background: rgba(47, 224, 200, 0.25);
+  color: #fff;
+}
+
+/* thin, quiet scrollbars — the observatory doesn't want chrome */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle noise so pure-black areas don't look flat/banded on large monitors */
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+.react-flow__edge-path {
+  stroke-dasharray: 4 4;
+  animation: dash-flow 0.6s linear infinite;
+}
+.react-flow__edge.edge-idle .react-flow__edge-path {
+  animation: none;
+  stroke-dasharray: none;
+  opacity: 0.35;
+}
+
+.react-flow__attribution {
+  display: none;
+}
